@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thank You Sister </title>
+  <title>Thank You Kusumm</title>
   <style>
     body {
       background-color: #ffe6f0;
@@ -10,24 +10,128 @@
       text-align: center;
       padding: 100px;
       color: #333;
+      overflow: hidden;
+      position: relative;
     }
+
+    h1, p, .closing {
+      animation: fadeIn 2s ease-in-out;
+    }
+
     h1 {
       color: #d63384;
+      font-size: 3em;
+      margin-bottom: 20px;
     }
+
     p {
       font-size: 20px;
       max-width: 600px;
       margin: auto;
+      line-height: 1.8;
+    }
+
+    .closing {
+      margin-top: 40px;
+      font-size: 18px;
+      color: #444;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff69b4;
+      transform: rotate(45deg);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff69b4;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { bottom: -20px; left: 50%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 100%; left: 45%; opacity: 0; }
+    }
+
+    /* Falling Daisy Flowers */
+    .flower {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Daisy_flower_2.JPG/48px-Daisy_flower_2.JPG');
+      background-size: cover;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Thank You, Didi 💖</h1>
+
+  <!-- Floating Hearts -->
+  <div class="heart" style="left: 20%; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 40%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 60%; animation-delay: 3s;"></div>
+  <div class="heart" style="left: 80%; animation-delay: 4s;"></div>
+
+  <!-- Falling Daisy Flowers -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = 4 + Math.random() * 5 + "s";
+      flower.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(flower);
+    }
+  </script>
+
+  <!-- Message -->
+  <h1>Thank You, kusum didi💖</h1>
   <p>
     You've always stood by me like a best friend, and my biggest supporter. <br>
     This little page is just a small way to say how much I love and appreciate you. <br>
-    Thank you for everything. You're the best sister anyone could ever ask for! hehe 💫
+    Thank you for everything. You're the best sister anyone could ever ask for! 💫
   </p>
+
+  <div class="closing">
+    Forever your brother,<br>
+    <strong>Naresh</strong>
+  </div>
 </body>
 </html>
-
